@@ -2,7 +2,7 @@ covariance
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the sample covariance between one or more numeric arrays.
+> Computes the [sample covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
 
 
 ## Installation
@@ -24,22 +24,24 @@ var cov = require( 'compute-covariance' );
 
 #### cov( arr1[, arr2,...] )
 
-Computes the sample covariance between one or more numeric arrays.
+Computes the [sample covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
 
 ``` javascript
 var x = [ 1, 2, 3, 4, 5 ],
 	y = [ 5, 4, 3, 2, 1 ];
 
 var mat = cov( x, y );
+// returns [[],[]]
 ```
 
 If the number of arrays is not known beforehand, `cov` also accepts an `array` of `arrays`.
 
 ``` javascript
 var mat = cov( [x,y] );
+// returns [[],[]]
 ```
 
-Note: if a single `array` is provided, the return `array` contains a single element equal to the [sample variance](https://github.com/compute-io/variance).
+Note: if a single `array` is provided, the returned [sample covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [sample variance](https://github.com/compute-io/variance).
 
 
 ## Examples
