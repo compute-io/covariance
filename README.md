@@ -19,18 +19,47 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-covariance' );
+var cov = require( 'compute-covariance' );
 ```
 
-#### foo( arr )
+#### cov( arr1[, arr2,...] )
 
-What does this function do?
+Computes the sample covariance between one or more numeric arrays.
+
+``` javascript
+var x = [ 1, 2, 3, 4, 5 ],
+	y = [ 5, 4, 3, 2, 1 ];
+
+var mat = cov( x, y );
+```
+
+If the number of arrays is not known beforehand, `cov` also accepts an `array` of `arrays`.
+
+``` javascript
+var mat = cov( [x,y] );
+```
+
+Note: if a single `array` is provided, the return `array` contains a single element equal to the [sample variance](https://github.com/compute-io/variance).
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'compute-covariance' );
+var cov = require( 'compute-covariance' );
+
+// Simulate some data...
+var N = 100,
+	x = new Array( N ),
+	y = new Array( N ),
+	z = new Array( N );
+
+for ( var i = 0; i < N; i++ ) {
+	x[ i ] = Math.round( Math.random()*100 );
+	y[ i ] = Math.round( Math.random()*100 );
+	z[ i ] = 100 - x[ i ];
+}
+var mat = cov( x, y, z );
+console.log( mat );
 ```
 
 To run the example code from the top-level application directory,

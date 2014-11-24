@@ -25,7 +25,20 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "mathematics",
+    "math",
+    "statistics",
+    "stats",
+    "variance",
+    "covariance",
+    "cov",
+    "var",
+    "dispersion",
+    "correlation",
+    "covary",
+    "timeseries",
+    "array"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/covariance/issues"
