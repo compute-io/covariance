@@ -23,9 +23,35 @@ describe( 'compute-covariance', function tests() {
 		expect( cov ).to.be.a( 'function' );
 	});
 
-	it( 'should throw an error if not provided an array' );
+	it( 'should throw an error if not provided an array', function test() {
+		var values = [
+			'5',
+			5,
+			null,
+			undefined,
+			true,
+			NaN,
+			function(){},
+			{}
+		];
 
-	it( 'should throw an error if not provided arrays of equal length' );
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				cov( value );
+			};
+		}
+	});
+
+	it( 'should throw an error if not provided arrays of equal length', function test() {
+		expect( foo ).to.throw( Error );
+		function foo() {
+			cov( [1,2,3], [1,2] );
+		}
+	});
 
 	it( 'should compute the sample covariance' );
 
