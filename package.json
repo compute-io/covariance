@@ -32,6 +32,7 @@
     "stats",
     "variance",
     "covariance",
+    "sample covariance",
     "cov",
     "var",
     "dispersion",
