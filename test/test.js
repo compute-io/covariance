@@ -66,7 +66,7 @@ describe( 'compute-covariance', function tests() {
 	});
 
 	it( 'should compute the sample covariance', function test() {
-		var x, y, expected, actual;
+		var x, y, z, expected, actual;
 
 		x = [ 1, -1 ];
 		y = [ -1, 1 ];
@@ -83,6 +83,23 @@ describe( 'compute-covariance', function tests() {
 		actual = cov( x, y );
 
 		assert.deepEqual( actual, expected );
+
+		x = [ -1, -2, 4 ];
+		y = [ 1, 3, 0 ];
+		z = [ 2, 1, 3 ];
+
+		expected = [
+			[ 31/3, -25/6, 3 ],
+			[ -25/6, 7/3, -3/2 ],
+			[ 3, -3/2, 1 ]
+		];
+		actual = cov( x, y, z );
+
+		for ( var i = 0; i < actual.length; i++ ) {
+			for ( var j = 0; j < actual[i].length; j++ ) {
+				assert.closeTo( actual[i][j], expected[i][j], 1e-10 );
+			}
+		}
 	});
 
 	it( 'should compute the sample variance when provided an array of arrays', function test() {
