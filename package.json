@@ -1,6 +1,6 @@
 {
   "name": "compute-covariance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Computes the covariance between one or more numeric arrays.",
   "author": {
     "name": "Athan Reines",
