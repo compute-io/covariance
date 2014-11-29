@@ -31,14 +31,14 @@ var x = [ 1, 2, 3, 4, 5 ],
 	y = [ 5, 4, 3, 2, 1 ];
 
 var mat = cov( x, y );
-// returns [[],[]]
+// returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
 If the number of arrays is not known beforehand, `cov` also accepts an `array` of `arrays`.
 
 ``` javascript
 var mat = cov( [x,y] );
-// returns [[],[]]
+// returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
 Note: if a single `array` is provided, the returned [sample covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [sample variance](https://github.com/compute-io/variance).
