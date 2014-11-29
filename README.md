@@ -47,7 +47,7 @@ By default, each element of the covariance matrix is the *unbiased* covariance e
 
 ``` javascript
 var mat = cov( x, y, {'bias': true});
-// returns []
+// returns [[2,-2],[-2,2]]
 ```
 
 
