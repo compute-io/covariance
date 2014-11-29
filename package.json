@@ -44,7 +44,9 @@
   "bugs": {
     "url": "https://github.com/compute-io/covariance/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-object": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",

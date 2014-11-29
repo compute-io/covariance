@@ -31,8 +31,7 @@ describe( 'compute-covariance', function tests() {
 			undefined,
 			true,
 			NaN,
-			function(){},
-			{}
+			function(){}
 		];
 
 		for ( var i = 0; i < values.length; i++ ) {
@@ -50,6 +49,43 @@ describe( 'compute-covariance', function tests() {
 		expect( foo ).to.throw( Error );
 		function foo() {
 			cov( [1,2,3], [1,2] );
+		}
+	});
+
+	it( 'should throw an error if `bias` option is not a boolean', function test() {
+		var values = [
+			'5',
+			5,
+			null,
+			undefined,
+			[],
+			NaN,
+			function(){},
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				cov( [], {'bias': value });
+			};
+		}
+	});
+
+	it( 'should ignore any unrecognized options', function test() {
+		expect( foo ).to.not.throw( Error );
+		function foo() {
+			cov( [], { 'unknown_option': 'beep' });
+		}
+	});
+
+	it( 'should throw an error if not provided any arrays', function test() {
+		expect( foo ).to.throw( Error );
+		function foo() {
+			cov();
 		}
 	});
 
@@ -102,13 +138,25 @@ describe( 'compute-covariance', function tests() {
 		}
 	});
 
-	it( 'should compute the sample variance when provided an array of arrays', function test() {
+	it( 'should compute the sample covariance when provided an array of arrays', function test() {
 		var data, expected, actual;
 
 		data = [ [1,-1], [-1,1] ];
 
 		expected = [ [2,-2],[-2,2] ];
 		actual = cov( data );
+
+		assert.deepEqual( actual, expected );
+	});
+
+	it( 'should compute the population covariance', function test() {
+		var x, y, expected, actual;
+
+		x = [ 3, -2, 5, 4 ];
+		y = [ 6, -2, 3, -1 ];
+
+		expected = [ [7.25,4.5], [4.5,10.25] ];
+		actual = cov( x, y, {'bias': true} );
 
 		assert.deepEqual( actual, expected );
 	});

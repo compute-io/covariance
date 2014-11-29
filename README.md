@@ -2,7 +2,7 @@ Covariance
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the [sample covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
+> Computes the [covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
 
 
 ## Installation
@@ -22,9 +22,9 @@ To use the module,
 var cov = require( 'compute-covariance' );
 ```
 
-#### cov( arr1[, arr2,...] )
+#### cov( arr1[, arr2,...,opts] )
 
-Computes the [sample covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
+Computes the [covariance](http://en.wikipedia.org/wiki/Covariance) between one or more numeric arrays.
 
 ``` javascript
 var x = [ 1, 2, 3, 4, 5 ],
@@ -34,14 +34,21 @@ var mat = cov( x, y );
 // returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
-If the number of arrays is not known beforehand, `cov` also accepts an `array` of `arrays`.
+If the number of arrays is dynamic, you may want the flexibility to compute the covariance of an arbitrary `array` collection. To this end, `cov` also accepts an `array` of `arrays`.
 
 ``` javascript
 var mat = cov( [x,y] );
 // returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
-Note: if a single `array` is provided, the returned [sample covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [sample variance](https://github.com/compute-io/variance).
+Note: if a single `array` is provided, the returned [covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [variance](https://github.com/compute-io/variance).
+
+By default, each element of the covariance matrix is the *unbiased* covariance estimate. Hence, the covariance matrix is the __sample covariance matrix__. For those cases where you want a biased estimate (i.e., population statistics), set the `bias` option to `true`.
+
+``` javascript
+var mat = cov( x, y, {'bias': true});
+// returns []
+```
 
 
 ## Examples
