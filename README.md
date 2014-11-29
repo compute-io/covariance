@@ -34,14 +34,14 @@ var mat = cov( x, y );
 // returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
+Note: for univariate input, the returned [covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [variance](https://github.com/compute-io/variance).
+
 If the number of arrays is dynamic, you may want the flexibility to compute the covariance of an arbitrary `array` collection. To this end, `cov` also accepts an `array` of `arrays`.
 
 ``` javascript
 var mat = cov( [x,y] );
 // returns [[2.5,-2.5],[-2.5,2.5]]
 ```
-
-Note: if a single `array` is provided, the returned [covariance matrix](http://en.wikipedia.org/wiki/Covariance_matrix) contains a single element equal to the [variance](https://github.com/compute-io/variance).
 
 By default, each element of the covariance matrix is the *unbiased* covariance estimate. Hence, the covariance matrix is the __sample covariance matrix__. For those cases where you want a biased estimate (i.e., population statistics), set the `bias` option to `true`.
 
