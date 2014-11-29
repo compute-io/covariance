@@ -43,7 +43,7 @@ var mat = cov( [x,y] );
 // returns [[2.5,-2.5],[-2.5,2.5]]
 ```
 
-By default, each element of the covariance matrix is the *unbiased* covariance estimate. Hence, the covariance matrix is the __sample covariance matrix__. For those cases where you want a biased estimate (i.e., population statistics), set the `bias` option to `true`.
+By default, each element of the covariance matrix is an *unbiased* covariance estimate. Hence, the covariance matrix is the __sample covariance matrix__. For those cases where you want a biased estimate (i.e., population statistics), set the `bias` option to `true`.
 
 ``` javascript
 var mat = cov( x, y, {'bias': true});
