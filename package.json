@@ -1,7 +1,7 @@
 {
   "name": "compute-covariance",
   "version": "0.0.0",
-  "description": "Computes the sample covariance between one or more numeric arrays.",
+  "description": "Computes the covariance between one or more numeric arrays.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -32,7 +32,9 @@
     "stats",
     "variance",
     "covariance",
-    "sample covariance",
+    "sample",
+    "covariance",
+    "covariance matrix",
     "cov",
     "var",
     "dispersion",
